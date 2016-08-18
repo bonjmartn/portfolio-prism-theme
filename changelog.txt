@@ -1,0 +1,5 @@
+Version 1.1
+8/18/16
+---------------------------------------
+
+- Security update for URLs the user enters for social media profiles and similar fields.
