@@ -1,10 +1,30 @@
-<footer>
+<?php
+/* Template Name: About Page
+*/
+?>
+<?php get_header(); ?>
 
-	<hr>
-	<div class="footer-container">
+<div class="page-container">
 
-		<div class="footer-social">
+      <div class="page-header">
+        <h1><?php the_title(); ?></h1>
+      </div>
 
+      <!-- WP LOOP -->
+      <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+
+        <div class="section group">
+
+          <div class="col span_4_of_12">
+            <p><span class="about-photo"><img src="<?php the_field('photo'); ?>"></span></p>
+          </div>
+
+          <div class="col span_8_of_12">
+            <p class="about-name"><?php the_field('name'); ?></p>
+            <p class="about-headline"><?php the_field('headline'); ?></p>
+            <p class="about-summary"><?php the_field('summary'); ?></p>
+
+            <div class="about-social">
               <?php if( get_theme_mod( 'prism_facebook_url' ) != "" ): ?>
                 <span id="facebook"><a href="<?php echo esc_url( get_theme_mod( 'prism_facebook_url' )); ?>"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></span>
               <?php endif; ?>
@@ -60,16 +80,47 @@
               <?php if( get_theme_mod( 'prism_linkedin_url' ) != "" ): ?>
                 <span id="linkedin"><a href="<?php echo esc_url( get_theme_mod( 'prism_linkedin_url' )); ?>"><i class="fa fa-linkedin" aria-hidden="true"></i></a></span>
               <?php endif; ?>
+            </div>
 
-		</div>
+          </div>
 
-		<div class="copyright">&copy; <?php echo date ('Y') ?> <?php bloginfo('name'); ?><br>Portfolio Prism Theme by <a href="https://www.zenwebthemes.com/">ZenWebThemes.com</a></div>
 
-	</div>
-	
-</footer>
 
-<?php wp_footer(); ?>
+        </div>
 
-</body>
-</html>
+        <div class="specialties">
+          <p class="specialties-headline"><?php the_field('specialties_headline'); ?></p>
+
+          <div class="section group">
+
+            <div class="col span_4_of_12">
+              <p class="specialty-icon"><i class="<?php the_field('specialty_1_icon'); ?>" aria-hidden="true"></i></p>
+              <p class="specialty-title"><?php the_field('specialty_1_title'); ?></p>
+              <p class="specialty-description"><?php the_field('specialty_1_description'); ?></p>
+            </div>
+
+            <div class="col span_4_of_12">
+              <p class="specialty-icon"><i class="<?php the_field('specialty_2_icon'); ?>" aria-hidden="true"></i></p>
+              <p class="specialty-title"><?php the_field('specialty_2_title'); ?></p>
+              <p class="specialty-description"><?php the_field('specialty_2_description'); ?></p>
+            </div>
+
+            <div class="col span_4_of_12">
+              <p class="specialty-icon"><i class="<?php the_field('specialty_3_icon'); ?>" aria-hidden="true"></i></p>
+              <p class="specialty-title"><?php the_field('specialty_3_title'); ?></p>
+              <p class="specialty-description"><?php the_field('specialty_3_description'); ?></p>
+            </div>  
+
+          </div>
+
+        </div>
+
+      <?php the_content(); ?>
+
+      <?php endwhile; else : ?>
+        <p><?php _e( 'Sorry, no posts matched your criteria.', 'portfolio-prism' ); ?></p>
+      <?php endif; ?> 
+
+</div>
+
+<?php get_footer(); ?>
