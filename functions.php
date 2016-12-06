@@ -71,7 +71,7 @@ function prism_woocommerce_support() {
 
 function prism_google_fonts() {
   $query_args = array(
-    'family' => 'Open+Sans:400,400i,600,600i,700,700i|Proza+Libre:400,400i,600,600i,700,700i',
+    'family' => 'Alegreya+Sans:400,400i,500,500i,700,700i|Cormorant+Garamond:400,400i,600,600i,700,700i|Cormorant+Infant:400,400i,600,600i,700,700i|Cormorant:400,400i,600,600i,700,700i|Exo+2:400,400i,600,600i,700,700i|Josefin+Sans:400,400i,600,600i,700,700i|Josefin+Slab:400,400i,600,600i,700,700i|Kanit:400,400i,600,600i,700,700i|Lato:400,400i,700,700i|Libre+Franklin:400,400i,600,600i,700,700i|Open+Sans:400,400i,600,600i,700,700i|Prompt:400,400i,600,600i,700,700i|Proza+Libre:400,400i,600,600i,700,700i|Raleway:400,400i,600,600i,700,700i|Roboto:400,400i,700,700i|Rubik:400,400i,500,500i,700,700i|Source+Sans+Pro:400,400i,600,600i,700,700i|Taviraj:400,400i,600,600i,700,700i|Titillium+Web:400,400i,600,600i,700,700i|Trirong:400,400i,600,600i,700,700i',
     'subset' => 'latin,latin-ext',
   );
   wp_enqueue_style( 'google_fonts', add_query_arg( $query_args, "//fonts.googleapis.com/css" ), array(), null );
@@ -86,8 +86,8 @@ add_action('init', 'prism_post_type_maker');
 function prism_post_type_maker() {
     $args = array(
 		'labels' => array(
-        'name' => __( 'Portfolio Items', 'portfolio-prism-free' ),
-        'singular_name' => __( 'Portfolio', 'portfolio-prism-free' )
+        'name' => __( 'Portfolio Items', 'portfolio-prism' ),
+        'singular_name' => __( 'Portfolio', 'portfolio-prism' )
       	),
       	'public' => true,
       	'has_archive' => true,
@@ -115,6 +115,10 @@ if( is_category() || is_tag() && empty( $query->query_vars['suppress_filters'] )
 	}
 add_filter( 'pre_get_posts', 'prism_add_custom_types_to_tax' );
 
+// Add About Page Type Custom Fields
+
+require_once get_template_directory() . '/inc/about-page.php';
+
 // Content Width Requirement
 
 function prism_content_width() {
@@ -128,7 +132,7 @@ function prism_register_theme_menus() {
 
 	register_nav_menus (
 		array (
-			'header-menu' => __( 'Header Menu', 'portfolio-prism-free')
+			'header-menu' => __( 'Header Menu', 'portfolio-prism')
 	));
 }
 

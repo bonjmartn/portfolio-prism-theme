@@ -1,14 +1,14 @@
 /*
-Theme Name: Portfolio Prism Free
+Theme Name: Portfolio Prism
 Theme URI: https://www.zenwebthemes.com/shop-themes/portfolio-prism/
 Author: Bonnie Martin
 Author URI: https://www.zenwebthemes.com/
-Description: Portfolio Prism is a minimal portfolio theme with a custom post type for portfolio items. It has a grid layout on the homepage and archives pages. This is the free version.
+Description: Portfolio Prism is a minimal portfolio theme with custom page templates for portfolio items and About Me. It has a grid layout on the homepage and archives pages.
 Version: 1.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: two-columns, left-sidebar, right-sidebar, full-width-template, custom-background, custom-colors, custom-header, custom-menu, featured-images, footer-widgets, theme-options, portfolio
-Text Domain: portfolio-prism-free
+Text Domain: portfolio-prism
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
@@ -499,7 +499,7 @@ a:active {
 }
 
 .home-top-item:hover {
-	border: 5px solid #3fa9f5;	
+	border: 5px solid #333333;	
 }
 
 .home-top-image {
@@ -586,6 +586,101 @@ img.pitem-main-img {
 	}
 }
 
+/* =About Page Custom Fields
+----------------------------------------------- */
+
+.about-name {
+	font-size: 25px;
+	font-weight: 600;
+	margin-bottom: 20px;
+}
+
+.about-headline {
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.about-summary {
+	font-size: 15px;
+	margin-top: 20px;
+	margin-bottom: 40px;
+}
+
+.about-photo img {
+	max-height: 280px;
+	max-width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+
+	.about-name,
+	.about-headline,
+	.about-summary {
+		text-align: center;
+	}
+
+	.about-photo img {
+		float: none;
+		display: block;
+		max-width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+.specialties {
+	background-color: #efefef;
+	padding: 40px;
+	margin-top: 30px;
+	margin-bottom: 50px;
+}
+
+.specialties-headline,
+.specialty-icon,
+.specialty-title,
+.specialty-description {
+	text-align: center;
+}
+
+.specialty-icon .fa {
+	font-size: 100px;
+}
+
+.specialties-headline {
+	font-size: 26px;
+	font-weight: 600;
+}
+
+.specialty-title {
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.specialty-description {
+	font-size: 14px;
+}
+
+.about-social {
+	margin-top: 20px;
+}
+
+.about-social a,
+.about-social a:visited {
+	color: #333333;
+}
+
+.about-social .fa {
+	color: #333333;
+	font-size: 24px;
+	margin-right: 10px;
+}
+
+.about-social .fa:hover,
+.about-social a:hover,
+.specialty-icon .fa:hover {
+	color: #3fa9f5;
+}
+
 /* =Flexbox Grid Structures
 ----------------------------------------------- */
 
@@ -606,7 +701,7 @@ img.pitem-main-img {
 }
 
 .grid-item:hover {
-	border: 5px solid #3fa9f5;	
+	border: 5px solid #333333;	
 }
 
 .grid-image {

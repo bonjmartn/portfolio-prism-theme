@@ -13,7 +13,7 @@
         <?php the_content(); ?>
 
         <?php endwhile; else : ?>
-        <p><?php _e( 'Sorry, no posts matched your criteria.', 'portfolio-prism-free' ); ?></p>
+        <p><?php _e( 'Sorry, no posts matched your criteria.', 'portfolio-prism' ); ?></p>
 
       <?php endif; ?> 
 
@@ -107,6 +107,53 @@
 
   </ul>
 
+<!-- Latest Blog Posts Grid -->
+
+<div class="latest-blog-posts">
+  <h2>Latest Blog Posts</h2>
+</div>
+
+  <ul class="grid-wrap">
+
+      <!-- WP LOOP for Portfolio posts -->
+      <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+
+            <?php
+            $args = array( 'posts_per_page' => 3, 'orderby' => 'date' );
+            $postslist = get_posts( $args );
+            foreach ( $postslist as $post ) :
+            setup_postdata( $post ); ?> 
+
+          <li class="grid-item">
+
+              <div class="grid-image">
+              <p>
+                  <?php if ( has_post_thumbnail() ) : ?>
+                      <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'large' ); ?></a>
+                  <?php endif; ?>
+              </p>
+
+                  <div class="grid-title">
+                      <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+                  </div>
+
+              </div>
+
+              <?php
+                endforeach; 
+                wp_reset_postdata();
+              ?>
+
+      <?php endwhile; ?>
+      <?php endif; ?>
+
+          </li>
+
+      <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>></div>
+
+  </ul>
+
+<p>&nbsp;</p>
 <p>&nbsp;</p>
 
 </div><!-- end of home container -->

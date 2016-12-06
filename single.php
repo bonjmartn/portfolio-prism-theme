@@ -37,7 +37,12 @@
       </em></p>
 
       <hr>
-    
+
+      <?php if ( ! dynamic_sidebar( 'end-post') ): ?>
+      <?php endif; ?>
+
+      <br><br>
+      
       <?php comments_template(); ?>
       <?php paginate_comments_links() ?>
 
